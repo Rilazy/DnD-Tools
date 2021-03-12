@@ -44,7 +44,10 @@ async def roll(message):
     print(text)
     dice, die, bonus = map(int, re.split("[+dD]", text))
     natroll = random.randint(dice, dice * die)
-    await message.channel.send(f"You rolled {natroll + bonus} ({natroll} + {bonus})")
+    output = f"You rolled {natroll + bonus} ({natroll} + {bonus})"
+    if dice == 1 and die == 20 and natroll == 20:
+        output = f"You rolled a natural 20! (Total {natroll + bonus})"
+    await message.channel.send(output)
     logger.debug(f"Rolled {natroll + bonus} ({natroll} + {bonus}) when rolling {dice}d{die}+{bonus}")
     return
 
