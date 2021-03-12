@@ -84,6 +84,8 @@ async def on_message(message):
                         f" \"{message.author}\"")
             break
 
-
-client.run('ODAyNzQ0Nzg3MzQ1NDczNTM2.YAzsVw.pi5G2gtTjeDjHhhw8rosHOjKUo0')
+with open("/home/pi/Desktop/DnD Tools/key.txt") as file:
+    key = file.readlines()
+key = key[0].strip()
+client.run(key)
 
